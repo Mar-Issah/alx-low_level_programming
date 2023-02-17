@@ -9,8 +9,9 @@
 int main(void)
 {
 int i;
-for(i = 0; i < 16; i++) {
-if(i < 10) {
+for (i = 0; i < 16; i++) 
+{
+if (i < 10) {
 putchar(i + '0');
 } 
 else
