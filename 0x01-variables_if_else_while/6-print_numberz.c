@@ -15,6 +15,6 @@ while (num < 10)
 putchar(num + '0');
 num++;
 }
-putchar('\n'); // print a newline after all the numbers
+putchar('\n');
 return (0);
 }
