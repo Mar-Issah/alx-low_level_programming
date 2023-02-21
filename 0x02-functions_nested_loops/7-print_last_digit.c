@@ -3,7 +3,7 @@
 /**
  * print_last_digit - function that prints the last digit of a number.
  * @x: The input number to check
- * % is the modulus operator, which calculates the 
+ * % is the modulus operator, which calculates the
  * remainder of a division operation.
  * Return: int.
  */
