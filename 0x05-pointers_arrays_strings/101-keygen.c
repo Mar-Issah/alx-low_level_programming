@@ -8,12 +8,13 @@
 
 char* generate_password() 
 {
+    int i;
     char* password = malloc(MAX_LENGTH + 1);
     int password_length = rand() % (MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
     const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     srand(time(NULL));
-    int i;
+  
     for (i = 0; i < password_length; i++)
     {
         int index = rand() % strlen(charset);
