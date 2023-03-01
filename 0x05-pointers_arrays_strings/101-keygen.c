@@ -6,14 +6,16 @@
 #define MIN_LENGTH 8
 #define MAX_LENGTH 12
 
-int main() {
+char* generate_password() 
+{
+    int i;
     char* password = malloc(MAX_LENGTH + 1);
     int password_length = rand() % (MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
     const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     srand(time(NULL));
-
-    for (int i = 0; i < password_length; i++)
+  
+    for (i = 0; i < password_length; i++)
     {
         int index = rand() % strlen(charset);
       
@@ -22,3 +24,14 @@ int main() {
     password[password_length] = '\0';
     return password;
 }
+
+
+int main() {
+    char* password = generate_password();
+    printf("%s\n", password);
+    free(password);
+    return 0;
+}
+
+
+
