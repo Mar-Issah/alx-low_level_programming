@@ -8,31 +8,40 @@
 
 char *cap_string(char *ch)
 {
-	int i = 0;
+    int i = 0;
+    int cap_next = 1;
 
-	while (*(ch + i) != '\0')
-	{
-		if (i == 0)
-			*(ch + i) = *(ch + i) - ' ';
-		if (*(ch + i) == ' ' || *(ch + i) == '\t')
-			i++;
-		else if (*(ch + i) == '\n' || *(ch + i) == ',')
-			i++;
-		else if (*(ch + i) == ';' || *(ch + i) == '.')
-			i++;
-		else if (*(ch + i) == '!' || *(ch + i) == '?')
-			i++;
-		else if (*(ch + i) == '"' || *(ch + i) == '(')
-			i++;
-		else if (*(ch + i) == ')' || *(ch + i) == '{')
-			i++;
-		else if (*(ch + i) == '}')
-			i++;
-		if (*(ch + i) >= 97 && *(ch + i) <= 122)
-		{
-			*(ch + i) = *(ch + i) - ' ';
-			i++;
-		}
-	}
-	return (ch);
+    while (*(ch + i) != '\0')
+    {
+        if (cap_next && (*(ch + i) >= 'a' && *(ch + i) <= 'z'))
+            *(ch + i) = *(ch + i) - 'a' + 'A';
+
+        cap_next = 0;
+
+        switch (*(ch + i))
+        {
+            case ' ':
+            case '\t':
+            case '\n':
+            case ',':
+            case ';':
+            case '.':
+            case '!':
+            case '?':
+            case '"':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+                cap_next = 1;
+                break;
+            default:
+                break;
+        }
+
+        i++;
+    }
+
+    return (ch);
 }
+
