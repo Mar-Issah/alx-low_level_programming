@@ -1,4 +1,3 @@
-#include <ctype.h>
 #include "main.h"
 
 /**
@@ -7,27 +6,33 @@
  * Return: char.
  */
 
-
 char *cap_string(char *ch)
 {
-    int capitalize_next = 1;
-    for (int i = 0; ch[i] != '\0'; i++)
-    {
-        if (isspace(ch[i]) || ch[i] == ',' || ch[i] == ';' || ch[i] == '.' ||
-            ch[i] == '!' || ch[i] == '?' || ch[i] == '"' || ch[i] == '(' ||
-            ch[i] == ')' || ch[i] == '{' || ch[i] == '}')
-        {
-            capitalize_next = 1;
-        }
-        else if (capitalize_next)
-        {
-            ch[i] = toupper(ch[i]);
-            capitalize_next = 0;
-        }
-        else
-        {
-            ch[i] = tolower(ch[i]);
-        }
-    }
-    return (ch);
+	int i = 0;
+
+	while (*(ch + i) != '\0')
+	{
+		if (i == 0)
+			*(ch + i) = *(ch + i) - ' ';
+		if (*(ch + i) == ' ' || *(ch + i) == '\t')
+			i++;
+		else if (*(ch + i) == '\n' || *(ch + i) == ',')
+			i++;
+		else if (*(ch + i) == ';' || *(ch + i) == '.')
+			i++;
+		else if (*(ch + i) == '!' || *(ch + i) == '?')
+			i++;
+		else if (*(ch + i) == '"' || *(ch + i) == '(')
+			i++;
+		else if (*(ch + i) == ')' || *(ch + i) == '{')
+			i++;
+		else if (*(ch + i) == '}')
+			i++;
+		if (*(ch + i) >= 97 && *(ch + i) <= 122)
+		{
+			*(ch + i) = *(ch + i) - ' ';
+			i++;
+		}
+	}
+	return (ch);
 }
