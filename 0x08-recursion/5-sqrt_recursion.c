@@ -10,21 +10,29 @@
 
 int _sqrt_recursion(int n)
 {
-if (n < 0)
-{
-return (-1);
-}
-  
-if (n == 0 || n == 1)
-{
-return (n);
+	if (n == 0)
+		return (0);
+	if (n == 1)
+		return (1);
+	if (n < 0)
+		return (-1);
+	return (getNumSqr(n, 1));
 }
 
-int root = _sqrt_recursion(n - 1) + 1;
+/**
+ * getNumSqr - function that gets de num of sqroot
+ *
+ * @num: input number
+ * @i: Counter variable
+ * Return: int
+ */
 
-if (root * root > n)
+int getNumSqr(int num, int i)
 {
-root--;
-}
-return (root);
+	if (num == (i * i))
+		return (i);
+	else if (num > (i * i))
+		return (getNumSqr(num, i + 1));
+	else
+		return (-1);
 }
