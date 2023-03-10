@@ -3,10 +3,10 @@
 /**
  * _puts - function that prints a string
  *
- * @s: pointer to char
+ * @str: pointer to char
  * Return: nothing
  */
 
-void _puts(char *s)
+void _puts(char *str)
 {
 }
