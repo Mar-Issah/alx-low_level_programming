@@ -1,4 +1,4 @@
-## 0x0D. C - Preprocessor
+0x0D. C - Preprocessor
 
 - What are macros and how to use them
 
