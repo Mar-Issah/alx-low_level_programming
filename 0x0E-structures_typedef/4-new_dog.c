@@ -10,8 +10,10 @@
 
 char *_strdup(char *str)
 {
-	char *dup;	unsigned int i = 0;
+	char *dup;
+	unsigned int i = 0;
 	unsigned int j = 0;
+	
 	if (str == NULL)
 		return (NULL);
 	while (str[i] != '\0')
@@ -39,6 +41,7 @@ char *_strdup(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	struct dog *new_dog;
+	
 	new_dog = malloc(sizeof(struct dog));
 	if (new_dog == NULL)
 		return (NULL);
