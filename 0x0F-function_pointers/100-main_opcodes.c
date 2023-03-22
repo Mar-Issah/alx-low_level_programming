@@ -11,7 +11,8 @@
 
 int main(int argc, char **argv)
 {
-	int i, bytes;	char *addr;
+	int i, bytes;
+	char *addr;
 
 	if (argc != 2)
 	{
