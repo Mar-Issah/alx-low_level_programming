@@ -7,7 +7,6 @@
  * @h: Points to the head of the list
  * Return: Number of nodes
  **/
- 
 size_t print_listint(const listint_t *h)
 {
 	int count = 0;
