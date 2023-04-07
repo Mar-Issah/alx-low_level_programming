@@ -1,5 +1,8 @@
 #include "main.h"
 
+#include <sys/types.h>
+#include <sys/uio.h>
+
 #define BUF_SIZE 1024
 
 /**
