@@ -10,20 +10,19 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-    unsigned int number = 0;
+    unsigned int num = 0;
 
     if (b == NULL)
         return (0);
 
-    while (*b != '\0')
+    for (; *b; b++)
     {
         if (*b != '0' && *b != '1')
             return (0);
 
-        number <<= 1;
-        number |= (*b - '0');
-        b++;
+        num <<= 1;
+        num |= *b - '0';
     }
 
-    return (number);
+    return (num);
 }
