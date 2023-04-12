@@ -6,7 +6,8 @@
 #define BUF_SIZE 1024
 
 /**
-* error_exit - prints an error message and exits the program with the given code
+* error_exit - prints an error message 
+* and exits the program with the given code
 * @code: the exit code to use
 * @msg: the error message to print
 * @arg: an additional argument to include in the error message
@@ -55,19 +56,15 @@ close(fd_to);
 error_exit(99, "Error: Can't write to", argv[2]);
 }
 }
-
 if (bytes_read == -1)
 {
 close(fd_from);
 close(fd_to);
 error_exit(98, "Error: Can't read from file", argv[1]);
 }
-
 if (close(fd_from) == -1)
 error_exit(100, "Error: Can't close fd", "fd_from");
-
 if (close(fd_to) == -1)
 error_exit(100, "Error: Can't close fd", "fd_to");
-
-return 0;
+return (0);
 }
