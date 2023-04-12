@@ -6,7 +6,7 @@
 #define BUF_SIZE 1024
 
 /**
-* error_exit - prints an error message 
+* error_exit - prints an error message
 * and exits the program with the given code
 * @code: the exit code to use
 * @msg: the error message to print
