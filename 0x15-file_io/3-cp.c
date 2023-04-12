@@ -6,7 +6,7 @@
 #define BUF_SIZE 1024
 
 /**
- * error_exit - Print the error and close the file descriptor
+ * error_exit - function Print the error and close the file descriptor
  * @msg: Error message to show
  * @code: the exit code to use
  **/
