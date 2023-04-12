@@ -6,8 +6,9 @@
 #define BUF_SIZE 1024
 
 /**
- * print_error_1 - Print the error and close the file descriptor
+ * error_exit - Print the error and close the file descriptor
  * @msg: Error message to show
+ * @code: the exit code to use
  **/
 
 void error_exit(int code, const char *msg, const char *arg)
