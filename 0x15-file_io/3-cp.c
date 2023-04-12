@@ -9,6 +9,7 @@
  * error_exit - function Print the error and close the file descriptor
  * @msg: Error message to show
  * @code: the exit code to use
+ * @arg: an additional argument to include in the error message
  **/
 
 void error_exit(int code, const char *msg, const char *arg)
