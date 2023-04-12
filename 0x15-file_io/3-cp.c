@@ -18,6 +18,13 @@ void error_exit(int code, const char *msg, const char *arg)
     exit(code);
 }
 
+/**
+ * main - Entry point for the program
+ * @argc: The number of arguments passed to the program
+ * @argv: An array of strings containing the arguments passed to the program
+ *
+ * Return: 0 if the program completes successfully, otherwise a non-zero value
+ */
 int main(int argc, char *argv[])
 {
     int fd_from, fd_to;
