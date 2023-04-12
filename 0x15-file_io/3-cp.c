@@ -36,7 +36,6 @@ int main(int argc, char *argv[])
         close(fd_from);
         error_exit(99, "Error: Can't write to", argv[2]);
     }
-
     while ((bytes_read = read(fd_from, buffer, BUF_SIZE)) > 0)
     {
         bytes_written = write(fd_to, buffer, bytes_read);
@@ -47,19 +46,15 @@ int main(int argc, char *argv[])
             error_exit(99, "Error: Can't write to", argv[2]);
         }
     }
-
     if (bytes_read == -1)
     {
         close(fd_from);
         close(fd_to);
         error_exit(98, "Error: Can't read from file", argv[1]);
     }
-
     if (close(fd_from) == -1)
         error_exit(100, "Error: Can't close fd", "fd_from");
-    
     if (close(fd_to) == -1)
         error_exit(100, "Error: Can't close fd", "fd_to");
-
     return (0);
 }
