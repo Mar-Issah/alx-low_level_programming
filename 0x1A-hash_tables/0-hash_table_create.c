@@ -8,6 +8,7 @@
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *table = (hash_table_t *)calloc(1, sizeof(hash_table_t));
+
 	if (table == NULL)
 	{
 		return (NULL);
