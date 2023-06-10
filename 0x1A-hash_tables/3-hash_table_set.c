@@ -1,40 +1,6 @@
 #include "hash_tables.h"
 
-/**
- * create_node - Function that create a hash node
- *
- * @key: key
- * @value: value
- *
- * Return: Address of the new hash node
- **/
-hash_node_t *create_node(const char *key, const char *value)
-{
-	char *new_key = strdup(key);
-	if (!new_key)
-		return (NULL);
-
-	char *new_value = strdup(value);
-	if (!new_value)
-	{
-		free(new_key);
-		return (NULL);
-	}
-
-	hash_node_t *new_node = calloc(1, sizeof(hash_node_t));
-	if (!new_node)
-	{
-		free(new_key);
-		free(new_value);
-		return (NULL);
-	}
-
-	new_node->next = NULL;
-	new_node->key = new_key;
-	new_node->value = new_value;
-
-	return (new_node);
-}
+hash_node_t *create_node(const char *key, const char *value);
 
 /**
  * hash_table_set -  function that adds an element to the hash table
@@ -47,11 +13,14 @@ hash_node_t *create_node(const char *key, const char *value)
  **/
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
+	unsigned int index;
+	hash_node_t *current, *new_node;
+
 	if (!ht || !key || !value || strlen(key) == 0 || !ht->array || ht->size == 0)
 		return (0);
 
-	unsigned int index = key_index((unsigned char *)key, ht->size);
-	hash_node_t *current = ht->array[index];
+	index = key_index((unsigned char *)key, ht->size);
+	current = ht->array[index];
 
 	while (current)
 	{
@@ -69,7 +38,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		current = current->next;
 	}
 
-	hash_node_t *new_node = create_node(key, value);
+	new_node = create_node(key, value);
 	if (!new_node)
 		return (0);
 
@@ -77,4 +46,41 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht->array[index] = new_node;
 
 	return (1);
+}
+
+/**
+ * create_node - Function that creates a hash node
+ *
+ * @key: key
+ * @value: value
+ *
+ * Return: Address of the new hash node
+ **/
+hash_node_t *create_node(const char *key, const char *value)
+{
+	char *new_key = strdup(key);
+	char *new_value = strdup(value);
+	hash_node_t *new_node = calloc(1, sizeof(hash_node_t));
+
+	if (!new_key)
+		return (NULL);
+
+	if (!new_value)
+	{
+		free(new_key);
+		return (NULL);
+	}
+
+	if (!new_node)
+	{
+		free(new_key);
+		free(new_value);
+		return (NULL);
+	}
+
+	new_node->next = NULL;
+	new_node->key = new_key;
+	new_node->value = new_value;
+
+	return (new_node);
 }
