@@ -3,11 +3,10 @@
 #include <stdio.h>
 
 /**
-
-hash_table_print - Function that prints a hash table
-
-@ht: Hash table to print
-**/
+ * hash_table_print - Function that prints a hash table
+ *
+ * @ht: Hash table to print
+ **/
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned int printed_entries = 0;
@@ -21,6 +20,7 @@ void hash_table_print(const hash_table_t *ht)
 	for (idx = 0; idx < ht->size; idx++)
 	{
 		hash_node_t *node = ht->array[idx];
+
 		while (node != NULL)
 		{
 			if (printed_entries > 0)
