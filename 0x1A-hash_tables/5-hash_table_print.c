@@ -11,13 +11,14 @@ hash_table_print - Function that prints a hash table
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned int printed_entries = 0;
+	unsigned int idx;
 
 	if (ht == NULL)
 		return;
 
 	printf("{");
 
-	for (unsigned int idx = 0; idx < ht->size; idx++)
+	for (idx = 0; idx < ht->size; idx++)
 	{
 		hash_node_t *node = ht->array[idx];
 		while (node != NULL)
